@@ -13,12 +13,6 @@ namespace TowerDefense
         [SerializeField] private Path m_Path;
         [SerializeField] private EnemyAsset[] m_EnemyAssets;
 
-        private int targetPath;
-        private void Update()
-        {
-            targetPath = Random.Range(0, m_Path.Length);
-        }
-
         protected override GameObject GenerateSpawnedEntity()
         {
             var e = Instantiate(m_EnemyPrefabs);

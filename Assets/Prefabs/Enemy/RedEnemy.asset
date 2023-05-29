@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:SpaceShooter:EnemyAsset
   color: {r: 1, g: 1, b: 1, a: 1}
   spriteScale: {x: 4, y: 4}
-  animations: {fileID: 9100000, guid: 3400eacee54f7fb46a2c60db6952bd82, type: 2}
-  moveSpeed: 1
-  hp: 2
-  score: 0
-  radius: 0.4
-  offset: {x: 0, y: 0.06}
-  damage: 2
-  gold: 2
+  m_Animations: {fileID: 9100000, guid: 3400eacee54f7fb46a2c60db6952bd82, type: 2}
+  m_MoveSpeed: 1
+  m_Hp: 1
+  m_Armor: 0
+  m_ArmorType: 0
+  m_Score: 1
+  m_Radius: 0.2
+  m_Offset: {x: 0, y: -0.09}
+  m_Damage: 1
+  m_Gold: 1

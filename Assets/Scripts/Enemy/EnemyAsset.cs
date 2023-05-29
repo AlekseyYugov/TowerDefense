@@ -10,15 +10,18 @@ namespace TowerDefense
         [Header("Внешний вид")]
         public Color color = Color.white;
         public Vector2 spriteScale = new Vector2(3,3);
-        public RuntimeAnimatorController animations;
+        public RuntimeAnimatorController m_Animations;
 
         [Header("Игровые параметры")]
-        public float moveSpeed = 1;
-        public int hp = 1;
-        public int score = 1;
-        public float radius = 0.2f;
-        public Vector2 offset = new Vector2(0, -0.09f);
-        public int damage = 1;
-        public int gold = 1;
+        public float m_MoveSpeed = 1;
+        public int m_Hp = 1;
+        public int m_Armor = 0;
+        public Enemy.ArmorType m_ArmorType;
+        public int m_Score = 1;
+        public float m_Radius = 0.2f;
+        public Vector2 m_Offset = new Vector2(0, -0.09f);
+        public int m_Damage = 1;
+        public int m_Gold = 1;
+        
     }
 }

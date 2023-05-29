@@ -66,39 +66,12 @@ namespace TowerDefense
             }
         }
 
-        //private void Update()
-        //{
-        //    Debug.Log(m_Timer);
-        //    if (m_Timer > 0)
-        //        m_Timer -= Time.deltaTime;
-
-
-        //    if(m_SpawnMode == SpawnMode.Loop && m_Timer <= 0)
-        //    {
-        //        SpawnEntities();
-        //        m_Timer = m_RespawnTime;
-        //    }
-        //}
-
         private void SpawnEntities()
         {
             for(int i = 0; i < m_NumSpawns; i++)
             {
                 var e = GenerateSpawnedEntity();
                 e.transform.position = m_Area.RandomInsideZone;
-
-                //var prefabToSpawn = m_EntityPrefabs[UnityEngine.Random.Range(0, m_EntityPrefabs.Length)];
-                //var e = Instantiate(prefabToSpawn);
-
-                
-                //if (e.TryGetComponent<TDPatrolController>(out var ai))
-                //{
-                //    ai.SetPath(m_path[Random.Range(0, m_path.Length)]);
-                //}
-                //if (e.TryGetComponent<Enemy>(out var en))
-                //{
-                //    en.Use(m_EnemySetting[Random.Range(0, m_EnemySetting.Length)]);
-                //}
             }
         }
     }

@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 1, g: 1, b: 1, a: 1}
   spriteScale: {x: 5, y: 5}
-  animations: {fileID: 9100000, guid: a68b81f2ad88828418c4b7f63c3038f0, type: 2}
-  moveSpeed: 0.8
-  hp: 40
-  score: 20
-  radius: 0.55
-  offset: {x: 0, y: 0.15}
+  m_Animations: {fileID: 9100000, guid: a68b81f2ad88828418c4b7f63c3038f0, type: 2}
+  m_MoveSpeed: 1
+  m_Hp: 1
+  m_Armor: 0
+  m_ArmorType: 0
+  m_Score: 1
+  m_Radius: 0.2
+  m_Offset: {x: 0, y: -0.09}
+  m_Damage: 1
+  m_Gold: 1

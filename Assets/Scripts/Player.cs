@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TowerDefense;
 using UnityEngine;
 
 namespace SpaceShooter
@@ -13,6 +14,11 @@ namespace SpaceShooter
 
         [SerializeField] private int m_NumLives;
         public int NumLives { get { return m_NumLives; } }
+
+
+        public event Action OnPlayerDeath;
+
+
         [SerializeField] private SpaceShip m_Ship;
         public SpaceShip ActiveShip => m_Ship;
 
@@ -20,6 +26,9 @@ namespace SpaceShooter
 
         //[SerializeField] private CameraController m_CameraController;
         //[SerializeField] private MovementController m_MovementController;
+
+
+
 
         private void Start()
         {
@@ -30,6 +39,8 @@ namespace SpaceShooter
             
         }
 
+        
+
         private void OnShipDeath()
         {
             m_NumLives--;
@@ -38,6 +49,7 @@ namespace SpaceShooter
                 Respawn();
             else
                 LevelSequenceController.Instance.FinishCurrentLevel(false);
+                
         }
 
         private void Respawn()
@@ -74,9 +86,15 @@ namespace SpaceShooter
             m_NumLives -= m_Damage;
             if (m_NumLives <= 0)
             {
-                LevelSequenceController.Instance.FinishCurrentLevel(false);
+                m_NumLives = 0;
+                OnPlayerDeath?.Invoke();
+                //LevelSequenceController.Instance.FinishCurrentLevel(false);
+                //LevelSequenceController.Instance.RestartLevel();
+                //m_YouLose.SetActive(true);
             }
         }
+
+        
 
         #endregion
     }

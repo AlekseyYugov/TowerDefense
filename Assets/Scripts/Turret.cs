@@ -36,6 +36,8 @@ namespace SpaceShooter
         /// </summary>
         private SpaceShip m_Ship;
 
+
+ 
         #region Unity events
 
         private void Start()
@@ -82,15 +84,33 @@ namespace SpaceShooter
                 if (!m_Ship.DrawAmmo(m_TurretProperties.AmmoUsage))
                     return;
             }
-            
-            
-            // инстанцируем прожектайл который уже сам полетит.
+
+
+            //запуск анимации башни
+
+            //clip.legacy = true;
+
+            //float speed = 5;
+
+
+            //towerShot.Animator.Play("Shot@TowerStone");
+
+            TowerShot.Shot = true;
+
+            //инстанцируем прожектайл который уже сам полетит.
             var projectile = Instantiate(m_TurretProperties.ProjectilePrefab.gameObject).GetComponent<Projectile>();
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
 
             // метод выставления данных прожектайлу о том кто стрелял для избавления от попаданий в самого себя
             projectile.SetParentShooter(m_Ship);
+
+            //траектория полета снаряда, нужно прикрепить Rigidbody2D к снаряду
+
+            //Rigidbody2D instantiatedProjectile = Instantiate(m_TurretProperties.ProjectilePrefab.gameObject.GetComponent<Rigidbody2D>(), transform.position, transform.rotation);
+            //instantiatedProjectile.velocity = transform.TransformDirection(new Vector3(0, 1, speed));
+            //Physics.IgnoreCollision(instantiatedProjectile.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
+
 
             m_RefireTimer = m_TurretProperties.RateOfFire;
 

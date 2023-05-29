@@ -27,7 +27,7 @@ namespace SpaceShooter
         /// <summary>
         /// Текущие хит поинты
         /// </summary>
-        private int m_CurrentHitPoints;
+        [SerializeField] private int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
         #endregion
@@ -75,7 +75,7 @@ namespace SpaceShooter
 
             m_CurrentHitPoints -= damage;
 
-            if (m_CurrentHitPoints < 0)
+            if (m_CurrentHitPoints <= 0)
                 OnDeath();
         }
 
@@ -134,8 +134,8 @@ namespace SpaceShooter
 
         protected void Use(EnemyAsset asset)
         {
-            m_HitPoints = asset.hp;
-            m_ScoreValue = asset.score;
+            m_HitPoints = asset.m_Hp;
+            m_ScoreValue = asset.m_Score;
         }
 
     }

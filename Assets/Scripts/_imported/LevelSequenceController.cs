@@ -11,7 +11,7 @@ namespace SpaceShooter
     /// </summary>
     public class LevelSequenceController : MonoSingleton<LevelSequenceController>
     {
-        public static string MainMenuSceneNickname = "scene_main_menu";
+        public static string MainMenuSceneNickname = "LevelMap";
 
         /// <summary>
         /// Текущий эпизод. Выставляется контроллером выбора эпизода перед началом игры.
@@ -44,7 +44,10 @@ namespace SpaceShooter
         /// </summary>
         public void RestartLevel()
         {
-            SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+            //SceneManager.LoadScene(CurrentEpisode.Levels[CurrentLevel]);
+            SceneManager.LoadScene(0);
+            Time.timeScale= 1;
+            
         }
 
         /// <summary>
@@ -55,6 +58,7 @@ namespace SpaceShooter
         {
             // после организации переходов
             LevelResultController.Instance.Show(success);
+            
         }
 
         /// <summary>

@@ -34,6 +34,13 @@ namespace SpaceShooter
         /// Максимальная линейная скорость.
         /// </summary>
         [SerializeField] private float m_MaxLinearVelocity;
+        private float m_MaxVelocityBackup;
+        public void HalfMaxLinearVelocity() 
+        { 
+            m_MaxVelocityBackup = m_MaxLinearVelocity; 
+            m_MaxLinearVelocity /= Slow.m_SlowLevel + 1; 
+        }
+        public void RestoreMaxLinearVelocity() { m_MaxLinearVelocity = m_MaxVelocityBackup; }
 
         /// <summary>
         /// Максимальная вращательная скорость. В градусах/сек
@@ -214,7 +221,7 @@ namespace SpaceShooter
 
         public new void Use(EnemyAsset asset)
         {
-            m_MaxLinearVelocity = asset.moveSpeed;
+            m_MaxLinearVelocity = asset.m_MoveSpeed;
             base.Use(asset);
         }
     }

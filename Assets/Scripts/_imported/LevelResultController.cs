@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TowerDefense;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,11 +26,11 @@ namespace SpaceShooter
         /// <param name="result"></param>
         public void Show(bool result)
         {
-            if (result)
-            {
-                UpdateCurrentLevelStats();
-                UpdateVisualStats();
-            }
+            //if (result)
+            //{
+            //    UpdateCurrentLevelStats();
+            //    UpdateVisualStats();
+            //}
 
             m_PanelSuccess?.gameObject.SetActive(result);
             m_PanelFailure?.gameObject.SetActive(!result);
@@ -41,6 +42,7 @@ namespace SpaceShooter
         public void OnPlayNext()
         {
             LevelSequenceController.Instance.AdvanceLevel();
+            GetMana.m_SummMana = 0;
         }
 
         /// <summary>
@@ -49,6 +51,7 @@ namespace SpaceShooter
         public void OnRestartLevel()
         {
             LevelSequenceController.Instance.RestartLevel();
+            GetMana.m_SummMana = 0;
         }
 
 
@@ -83,7 +86,7 @@ namespace SpaceShooter
             TotalStats.score += Player.Instance.Score;
 
             // бонус за время прохождения.
-            int timeBonus = LevelController.Instance.ReferenceTime - (int)LevelController.Instance.LevelTime;
+            int timeBonus = (int) (LevelController.Instance.ReferenceTime - LevelController.Instance.LevelTime);
 
             if(timeBonus > 0)
                 TotalStats.score += timeBonus;
